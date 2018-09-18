@@ -1,4 +1,4 @@
-I have an app which needs to have an embedded english (mand more languages should be added later) dictionary. Currently, I'm using postgres to store the words. `pg_trgm` is used to enable "fuzzy" search.
+I have an app which needs to have an embedded english -- with more languages should be added later -- dictionary. Currently, I'm using postgres to store the words. `pg_trgm` is used to enable "fuzzy" search.
 
 This repo looks into more efficient ways of having an indexed dictionary inside the app:
 
