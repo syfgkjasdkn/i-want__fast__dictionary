@@ -5,6 +5,7 @@ This repo looks into more efficient and straighforward ways of having an indexed
 - [FSTs](https://en.wikipedia.org/wiki/Finite-state_transducer) via [fst](https://github.com/BurntSushi/fst)
 - [tantivy](https://github.com/tantivy-search/tantivy) using trigram tokenizers
 - sqlite with [trilite](https://github.com/jonasfj/trilite)
+- an inverted index of trigrams in elixir with ets storing the definitions
 - something else?
 
 The current approach (postgres + `pg_trgm`) is the control.
