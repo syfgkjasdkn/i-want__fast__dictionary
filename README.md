@@ -3,7 +3,7 @@ I have an app which needs to have an embedded english -- with more languages sho
 This repo looks into more efficient and straighforward ways of having an indexed dictionary inside the app:
 
 - [FSTs](https://en.wikipedia.org/wiki/Finite-state_transducer) via [fst](https://github.com/BurntSushi/fst)
-- [tantivy](https://github.com/tantivy-search/tantivy) using trigram tokenizers.
+- [tantivy](https://github.com/tantivy-search/tantivy) using trigram tokenizers
 - sqlite with [trilite](https://github.com/jonasfj/trilite)
 - something else?
 
