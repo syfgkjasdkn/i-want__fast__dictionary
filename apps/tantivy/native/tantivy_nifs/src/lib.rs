@@ -114,8 +114,14 @@ fn query<'a>(env: Env<'a>, args: &[Term<'a>]) -> NifResult<Term<'a>> {
     let words: Vec<Term<'a>> = doc_addresses
         .into_iter()
         .map(|doc_addr| {
-            searcher.doc(doc_addr).unwrap()
-            .get_first(Field(0)).unwrap().text().unwrap().encode(env)
+            searcher
+                .doc(doc_addr)
+                .unwrap()
+                .get_first(Field(0))
+                .unwrap()
+                .text()
+                .unwrap()
+                .encode(env)
         }).collect();
 
     Ok(words.encode(env))
