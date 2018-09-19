@@ -6,6 +6,6 @@ defmodule DataSource do
   def path_to_words do
     :datasource
     |> Application.app_dir("priv")
-    |> Path.join("sorted_words2.txt")
+    |> Path.join("sorted_words.txt")
   end
 end

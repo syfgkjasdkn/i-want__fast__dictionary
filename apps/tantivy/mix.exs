@@ -1,9 +1,9 @@
-defmodule Benchmarks.MixProject do
+defmodule Tantivy.MixProject do
   use Mix.Project
 
   def project do
     [
-      app: :benchmarks,
+      app: :tantivy,
       version: "0.1.0",
       build_path: "../../_build",
       config_path: "../../config/config.exs",
@@ -11,6 +11,8 @@ defmodule Benchmarks.MixProject do
       lockfile: "../../mix.lock",
       elixir: "~> 1.7",
       start_permanent: Mix.env() == :prod,
+      compilers: [:rustler | Mix.compilers()],
+      rustler_crates: rustler_crates(),
       deps: deps()
     ]
   end
@@ -25,10 +27,20 @@ defmodule Benchmarks.MixProject do
   # Run "mix help deps" to learn about dependencies.
   defp deps do
     [
-      {:benchee, "~> 0.13", only: :bench},
-      {:fst, in_umbrella: true},
-      {:tantivy, in_umbrella: true},
+      {:rustler, "~> 0.18", runtime: false},
       {:datasource, in_umbrella: true}
     ]
   end
+
+  defp rustler_crates do
+    [
+      tantivy_nifs: [
+        path: "native/tantivy_nifs",
+        mode: rustc_mode(Mix.env())
+      ]
+    ]
+  end
+
+  defp rustc_mode(env) when env in [:prod, :bench], do: :release
+  defp rustc_mode(_env), do: :debug
 end
